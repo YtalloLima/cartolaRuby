@@ -1,0 +1,11 @@
+<h1> Rodadas do Brasileirão </h1>
+<table>
+	<tr>
+		<td>Nome:</td>
+	</tr>
+	<% @rounds.each do |round| %>
+	<tr>
+		<td><%=round.nome %></td>
+	</tr>
+	<% end %>
+</table>
