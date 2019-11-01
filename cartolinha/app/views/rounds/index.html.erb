@@ -1,11 +1,14 @@
 <% contador = 1 %>
-<h1> Rodadas do Brasileirão </h1>
+<div align="center"><h1> Rodadas do Brasileirão </h1></div></br>
 <table class="table table-hover">
 <thead>
 	<tr>	
 		<th scope="col">
 			<td>#</td>
 		    <td>Nome</td>
+		    <td>Mostrar</td>
+		    <td>Editar</td>
+		    <td>Excluir</td>
 		</th>
     </tr>
 </thead>
@@ -15,6 +18,9 @@
 	<th scope="row">
 		<td><%=contador %></td>
 		<td><%=round.nome %></td>
+		<td><%= link_to 'Mostrar' , {action: 'show', id: round} , class: "btn btn-primary btn-sm"  %></td>
+		<td><%= link_to 'Editar' , {action: 'edit', id: round} , class: "btn btn-secondary btn-sm"  %></td>
+		<td><%= link_to 'Deletar' , {action: 'destroy', id: round} , {method: "delete", class: "btn btn-danger btn-sm"}  %></td>
 	</th>
     </tr>
     <% contador += 1 %>
