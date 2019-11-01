@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_110508) do
+ActiveRecord::Schema.define(version: 2019_11_01_095703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2019_10_31_110508) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "disputes", force: :cascade do |t|
+    t.bigint "game_id"
+    t.bigint "team_id"
+    t.boolean "home_team"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_disputes_on_game_id"
+    t.index ["team_id"], name: "index_disputes_on_team_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.datetime "dataJogo"
     t.string "estadio"
@@ -39,11 +49,6 @@ ActiveRecord::Schema.define(version: 2019_10_31_110508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "round_id"
-  end
-
-  create_table "games_teams", id: false, force: :cascade do |t|
-    t.integer "game_id"
-    t.integer "team_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -66,4 +71,6 @@ ActiveRecord::Schema.define(version: 2019_10_31_110508) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "disputes", "games"
+  add_foreign_key "disputes", "teams"
 end
