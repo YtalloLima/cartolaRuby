@@ -1,11 +1,23 @@
+<% contador = 1 %>
 <h1> Rodadas do Brasileirão </h1>
-<table>
-	<tr>
-		<td>Nome:</td>
-	</tr>
+<table class="table table-hover">
+<thead>
+	<tr>	
+		<th scope="col">
+			<td>#</td>
+		    <td>Nome</td>
+		</th>
+    </tr>
+</thead>
+<tbody>
 	<% @rounds.each do |round| %>
 	<tr>
+	<th scope="row">
+		<td><%=contador %></td>
 		<td><%=round.nome %></td>
-	</tr>
-	<% end %>
+	</th>
+    </tr>
+    <% contador += 1 %>
+	<%  end %>
+</tbody>
 </table>
