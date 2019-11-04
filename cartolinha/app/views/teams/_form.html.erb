@@ -1,0 +1,11 @@
+<%= form_for @team, url: teams_path, html: { multipart: true } do |f| %>
+    <div class="field">
+		<%= f.label :nome %> 
+		<%= f.text_field :nome %> <br/>
+	</div>
+	<div class="field">
+		<%= f.label :escudo %>
+		<%= f.file_field :escudo %>
+	</div>
+<%= f.submit %>
+<% end %>

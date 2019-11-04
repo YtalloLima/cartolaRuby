@@ -1,0 +1,11 @@
+<h1>Dados do Time</h1>
+<p>
+	<b>Nome:</b>
+	<%= @team.nome %>
+</p>
+<p>
+	<b>Escudo:</b>
+	<%= image_tag @team.escudo.url(:thumb) %>
+	<%= image_tag @team.escudo.url(:medium) %>
+</p>
+<td><%= link_to 'Voltar' , {action: 'index'}, class: "btn btn-primary" %></td>
