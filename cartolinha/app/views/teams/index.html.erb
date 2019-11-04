@@ -7,6 +7,7 @@
 		<th scope="col">
 			<td>#</td>
 		    <td>Nome</td>
+		    <td>Escudo</td>
 		    <td>Mostrar</td>
 		    <td>Editar</td>
 		    <td>Excluir</td>
@@ -19,6 +20,7 @@
 	<th scope="row">
 		<td><%=contador %></td>
 		<td><%=team.nome %></td>
+		<td><%= image_tag team.escudo.url(:thumb) %></td>
 		<td><%= link_to 'Mostrar' , {action: 'show', id: team} , class: "btn btn-primary btn-sm"  %></td>
 		<td><%= link_to 'Editar' , {action: 'edit', id: team} , class: "btn btn-secondary btn-sm"  %></td>
 		<td><%= link_to 'Deletar' , {action: 'destroy', id: team} , {method: "delete", data: { confirm: "Deseja realmente excluir?" },class: "btn btn-danger btn-sm"}  %></td>
