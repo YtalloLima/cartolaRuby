@@ -13,6 +13,7 @@ class TeamsController < ApplicationController
 
 	def create
 		@team = Team.new(team_params)
+		@team.escudo = params[:team][:escudo] 
 		@team.save
 		redirect_to(action: "show", id: @team)
 	end
@@ -27,6 +28,13 @@ class TeamsController < ApplicationController
 
 		redirect_to(action: "index", id: @team)
 	end	
+
+	def destroy
+		@team = Team.find(params[:id])
+		@team.destroy
+
+		redirect_to(action: "index")
+	end
 
 	def team_params
 		params.require(:team).permit(:nome, :escudo)
