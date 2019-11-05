@@ -15,14 +15,15 @@ class GamesController < ApplicationController
 	def create
 		puts "Entreeeeeiiii Aquuiiii"
 		puts "team_id"
-		puts teste
 		@game = Game.new(game_params)
+		puts @game.round_id
+		puts @game.time_id
 		@game.save
 		redirect_to(action: "show", id: @game)
 	end
 
 	def game_params
-		params.require(:game).permit(:dataJogo, :estadio, :cidade, :horario, :round_id)
+		params.require(:game).permit(:dataJogo, :estadio, :cidade, :horario, :round_id, :time_id)
 	end
 
 	def preparar_form

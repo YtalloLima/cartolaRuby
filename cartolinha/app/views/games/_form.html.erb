@@ -3,6 +3,6 @@
 		Cidade: <%= f.text_field :cidade %> <br/>
 		Horário:<%= f.text_field :horario %> <br/>
 	    Rodada:<%= f.collection_select(:round_id, @rounds, :id, :nome, :prompt => true)  %>   
-	    Time:<%= f.collection_select(:teste, @teams, :id, :nome, :prompt => true)  %>     
+	    Time:<%= f.collection_select(:time_id, @teams, :id, :nome, :prompt => true)  %>     
 <%= f.submit %>
 <% end %>
