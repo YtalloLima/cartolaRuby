@@ -13,17 +13,31 @@ class GamesController < ApplicationController
 	end
 
 	def create
-		puts "Entreeeeeiiii Aquuiiii"
-		puts "team_id"
+		#criar game
 		@game = Game.new(game_params)
-		puts @game.round_id
-		puts @game.time_id
 		@game.save
+        
+        #criar disputa
+        #time mandante
+		objDisputa = DisputesController.new
+		@dispute = Dispute.new   
+		@dispute.game_id = @game.id
+		@dispute.team_id = @game.team_home_id
+		@dispute.home_team = true
+
+		#time visitante
+		@dispute2 = Dispute.new 
+		@dispute2.game_id = @game.id
+		@dispute2.team_id = @game.team_away_id
+		@dispute2.home_team = false
+
+		objDisputa.receiveObject(@dispute, @dispute2)
+		#objDisputa.receiveObject()
 		redirect_to(action: "show", id: @game)
 	end
 
 	def game_params
-		params.require(:game).permit(:dataJogo, :estadio, :cidade, :horario, :round_id, :time_id)
+		params.require(:game).permit(:dataJogo, :estadio, :cidade, :horario, :round_id, :team_home_id, :team_away_id)
 	end
 
 	def preparar_form
