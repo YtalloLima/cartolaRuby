@@ -1,0 +1,34 @@
+<% contador = 1 %>
+<div align="center"><h1> Jogadores </h1></div></br>
+<%= link_to 'Novo' , {action: 'new'} , class: "btn btn-primary btn-sm"  %>
+<table class="table table-hover">
+<thead>
+	<tr>	
+		<th scope="col">
+			<td>#</td>
+		    <td></td>
+		    <td>Nome</td>
+		    <td>Time</td>
+		    <td>Mostrar</td>
+		    <td>Editar</td>
+		    <td>Excluir</td>
+		</th>
+    </tr>
+</thead>
+<tbody>
+	<% @players.each do |player| %>
+	<tr>
+	<th scope="row">
+		<td><%=contador %></td>
+		<td><%= image_tag player.avatar.url(:thumb) %></td>
+		<td><%=player.nome %></td>
+		<td><%= image_tag player.team.escudo.url(:thumb) %></td>
+		<td><%= link_to 'Mostrar' , {action: 'show', id: player} , class: "btn btn-primary btn-sm"  %></td>
+		<td><%= link_to 'Editar' , {action: 'edit', id: player} , class: "btn btn-secondary btn-sm"  %></td>
+		<td><%= link_to 'Deletar' , {action: 'destroy', id: player} , {method: "delete", data: { confirm: "Deseja realmente excluir?" },class: "btn btn-danger btn-sm"}  %></td>
+	</th>
+    </tr>
+    <% contador += 1 %>
+	<%  end %>
+</tbody>
+</table>

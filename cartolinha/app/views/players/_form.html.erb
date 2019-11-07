@@ -1,0 +1,21 @@
+<%= form_with model: @player, html: { multipart: true } do |f| %>
+<table>
+	<tr>
+		<td><%= f.label :nome %></td>
+		<td><%= f.text_field :nome %> </td>
+	</tr>
+		<tr>
+		<td>Data de Nascimento</td>
+		<td><%= f.text_field :dataNascimento %> </td>
+	</tr>
+		<tr>
+	    <td><%= f.label :time %></td>
+	    <td><%= f.collection_select(:team_id, @teams, :id, :nome, :prompt => true)  %> </td>
+	</tr>
+	<tr>
+		<td><%= f.label :avatar %></td>
+		<td><%= f.file_field :avatar %></td>
+	</tr>
+	<tr>
+	<tr><td><%= f.submit "Confirmar", class:  'btn btn-secondary btn-sm' %></td></tr>
+<% end %>

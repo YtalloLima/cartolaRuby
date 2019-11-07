@@ -26,7 +26,7 @@ class TeamsController < ApplicationController
 		@team = Team.find(params[:id])
 		@team.update_attributes(team_params)
 
-		redirect_to(action: "index", id: @team)
+		redirect_to(action: "show", id: @team)
 	end	
 
 	def destroy

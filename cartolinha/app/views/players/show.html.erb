@@ -1,0 +1,19 @@
+<h1>Perfil do Jogador</h1>
+<p>
+	<b></b>
+	<%= image_tag @player.avatar.url(:medium) %>
+</p>
+<p>
+	<b>Nome:</b>
+	<%= @player.nome %>
+</p>
+<p>
+	<b>Data de Nascimento:</b>
+	<%= @player.dataNascimento %>
+</p>
+<p>
+	<b>Time:</b>
+	<%= image_tag @player.team.escudo.url(:thumb) %> - <%= @player.team.nome%>
+</p>
+<p>
+<td><%= link_to 'Voltar' , {action: 'index'}, class: "btn btn-primary" %></td>
