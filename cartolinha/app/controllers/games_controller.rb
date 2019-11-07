@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+
+	before_action :preparar_form, only: [:new, :create, :edit, :udpdate]
+
 	def index
 		@games = Game.order :id
 	end
@@ -8,33 +11,18 @@ class GamesController < ApplicationController
 	end
 
 	def new
-		preparar_form
 		@game = Game.new
 	end
 
 	def create
-		#criar game
 		@game = Game.new(game_params)
 		@game.save
-        
-        #criar disputa
-        #time mandante
-		objDisputa = DisputesController.new
-		@dispute = Dispute.new   
-		@dispute.game_id = @game.id
-		@dispute.team_id = @game.team_home_id
-		@dispute.home_team = true
-
-		#time visitante
-		@dispute2 = Dispute.new 
-		@dispute2.game_id = @game.id
-		@dispute2.team_id = @game.team_away_id
-		@dispute2.home_team = false
-
-		objDisputa.receiveObject(@dispute, @dispute2)
-		#objDisputa.receiveObject()
-		redirect_to(action: "show", id: @game)
+		puts 11111111111111111111111111111111111111111111
+		puts @game.errors.inspect
+		redirect_to @game
 	end
+
+	private
 
 	def game_params
 		params.require(:game).permit(:dataJogo, :estadio, :cidade, :horario, :round_id, :team_home_id, :team_away_id)
