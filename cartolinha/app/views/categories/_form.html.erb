@@ -1,0 +1,25 @@
+<%= form_for @category do |f| %>
+<table class="table table-bordered">
+	<tbody>
+    <tr>
+      <th scope="row">
+      	<td>Nome:</td>
+      	<td><%= f.text_field :nome %></td>
+      	</th>
+    </tr>
+    <tr>
+      <th scope="row">
+      	<td>Descrição:</td> 
+      	<td><%= f.text_area :descricao, cols: 40, rows: 10%></td>
+      </th>
+    </tr>
+    <tr>
+      <th scope="row">
+      	<td>Pontuação:</td>
+      	<td><%= f.text_field :pontuacao %></td>
+      </th>
+    </tr>
+</tbody>
+</table>
+<%= f.submit %>
+<% end %>

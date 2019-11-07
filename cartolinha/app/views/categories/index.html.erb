@@ -1,0 +1,32 @@
+<% contador = 1 %>
+<div align="center"><h1> Categorias de Avaliação </h1></div></br>
+<%= link_to 'Novo' , {action: 'new'} , class: "btn btn-primary btn-sm"  %>
+<table class="table table-hover">
+<thead>
+	<tr>	
+		<th scope="col">
+			<td>#</td>
+		    <td>Nome</td>
+		    <td>Pontuação</td>
+		    <td>Mostrar</td>
+		    <td>Editar</td>
+		    <td>Excluir</td>
+		</th>
+    </tr>
+</thead>
+<tbody>
+	<% @categories.each do |category| %>
+	<tr>
+	<th scope="row">
+		<td><%=contador %></td>
+		<td><%=category.nome %></td>
+		<td><%=category.pontuacao %></td>
+		<td><%= link_to 'Mostrar' , {action: 'show', id: category} , class: "btn btn-primary btn-sm"  %></td>
+		<td><%= link_to 'Editar' , {action: 'edit', id: category} , class: "btn btn-secondary btn-sm"  %></td>
+		<td><%= link_to 'Deletar' , {action: 'destroy', id: category} , {method: "delete", data: { confirm: "Deseja realmente excluir?" },class: "btn btn-danger btn-sm"}  %></td>
+	</th>
+    </tr>
+    <% contador += 1 %>
+	<%  end %>
+</tbody>
+</table>

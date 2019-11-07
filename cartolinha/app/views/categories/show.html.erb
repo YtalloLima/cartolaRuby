@@ -1,0 +1,10 @@
+<h1>Dados da Rodada</h1>
+<p>
+	<b>Nome:</b>
+	<%= @category.nome %><br/>
+	<b>Descrição:</b>
+	<%= @category.descricao %><br/>
+	<b>Pontuação:</b>
+	<%= @category.pontuacao %><br/>
+</p>
+<td><%= link_to 'Voltar' , {action: 'index'}, class: "btn btn-primary" %></td>
