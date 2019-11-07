@@ -1,9 +1,28 @@
 <%= form_with model: @game do |f| %>
-		Estádio:<%= f.text_field :estadio %> <br/>
-		Cidade: <%= f.text_field :cidade %> <br/>
-		Horário:<%= f.text_field :horario %> <br/>
-	    Rodada:<%= f.collection_select(:round_id, @rounds, :id, :nome, :prompt => true)  %>   
-	    Mandante:<%= f.collection_select(:team_home_id, @teams, :id, :nome, :prompt => true)  %> 
-	    Visitante:<%= f.collection_select(:team_away_id, @teams, :id, :nome, :prompt => true)  %>      
-<%= f.submit %>
+<table>
+	<tr>
+		<td>Estádio:</td>
+		<td><%= f.text_field :estadio %> </td>
+	</tr>
+	<tr>
+		<td>Cidade:</td>
+		<td><%= f.text_field :cidade %></td>
+	</tr>
+	<tr>
+		<td>Horário:</td>
+		<td><%= f.text_field :horario %></td>
+	</tr>
+	<tr>
+	    <td>Rodada:</td>
+	    <td><%= f.collection_select(:round_id, @rounds, :id, :nome, :prompt => true)  %> </td>
+	<tr>
+	<tr>
+	    <td>Mandante:</td>
+	    <td><%= f.collection_select(:team_home_id, @teams, :id, :nome, :prompt => true)  %> </td>
+	<tr>
+	<tr>
+	    <td>Visitante:</td>
+	    <td><%= f.collection_select(:team_away_id, @teams, :id, :nome, :prompt => true)  %></td> 
+	<tr>
+	<tr><td><%= f.submit "Confirmar", class:  'btn btn-secondary btn-sm' %></td></tr>
 <% end %>
