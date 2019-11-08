@@ -46,7 +46,7 @@ class GamesController < ApplicationController
 
     def confrontos
     	#@games = Game.find_by(round_id: 1)
-    	@games =Game.where({round_id: 1})
+    	@games =Game.where({round_id: params[:id]})
     	puts "rfrejgurteij"
     	#puts @games.errors.inspect
     	#puts @games.length

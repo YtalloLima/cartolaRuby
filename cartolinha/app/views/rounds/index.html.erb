@@ -1,6 +1,6 @@
 <% contador = 1 %>
 <div align="center"><h1> Rodadas do Brasileirão </h1></div></br>
-<%= link_to 'Novo' , {action: 'new'} , class: "btn btn-primary btn-sm"  %>
+<%= link_to 'Novo' , new_round_path , class: "btn btn-primary btn-sm"  %>
 <table class="table table-hover">
 <thead>
 	<tr>	
@@ -19,9 +19,10 @@
 	<th scope="row">
 		<td><%=contador %></td>
 		<td><%=round.nome %></td>
-		<td><%= link_to 'Mostrar' , {action: 'show', id: round} , class: "btn btn-primary btn-sm"  %></td>
-		<td><%= link_to 'Editar' , {action: 'edit', id: round} , class: "btn btn-secondary btn-sm"  %></td>
-		<td><%= link_to 'Deletar' , {action: 'destroy', id: round} , {method: "delete", data: { confirm: "Deseja realmente excluir?" },class: "btn btn-danger btn-sm"}  %></td>
+		<td><%= link_to 'Confrontos' , confrontos_rodada_path(round) , class: "btn btn-primary btn-sm"  %></td>
+		<td><%= link_to 'Mostrar' , round_path(round) , class: "btn btn-primary btn-sm"  %></td>
+		<td><%= link_to 'Editar' , edit_round_path(round) , class: "btn btn-secondary btn-sm"  %></td>
+		<td><%= link_to 'Deletar' , round_path(round) , {method: "delete", data: { confirm: "Deseja realmente excluir?" },class: "btn btn-danger btn-sm"}  %></td>
 	</th>
     </tr>
     <% contador += 1 %>
