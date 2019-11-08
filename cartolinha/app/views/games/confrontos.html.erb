@@ -1,0 +1,32 @@
+Entrou Aqui
+
+<% contador = 1 %>
+<div align="center"><h1> Jogo </h1></div></br>
+<table class="table table-hover">
+<thead>
+	<tr>	
+		<th scope="col">
+			<td>#</td>
+		    <td>Nome</td>
+		    <td>Escudo</td>
+		    <td>Mostrar</td>
+		    <td>Editar</td>
+		    <td>Excluir</td>
+		</th>
+    </tr>
+</thead>
+<tbody>
+	<% @games.each do |game| %>
+	<tr>
+	<th scope="row">
+		<td><%=contador %></td>
+		<td><b><%= game.team_home.nome %></b> <%= image_tag game.team_home.escudo.url(:thumb) %> X <%=image_tag game.team_away.escudo.url(:thumb) %> <b><%= game.team_away.nome %></b> </td>
+		<td><%= game.cidade %></td>
+	</th>
+    </tr>
+    <% contador += 1 %>
+	<%  end %>
+</tbody>
+</table>
+
+

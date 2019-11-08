@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :players
   resources :categories
 
-  match 'confrontos' =>'games#mostrarConfrontos', via:'get'
+  match 'confrontos' =>'games#confrontos', via:'get'
 
   #match 'confrontos/:id' =>'games#mostrarConfrontos', via:'get'
 end
