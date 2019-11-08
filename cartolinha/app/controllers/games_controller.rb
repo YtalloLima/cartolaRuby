@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-	before_action :preparar_form, only: [:new, :create, :edit, :udpdate]
+	before_action :preparar_form, only: [:new, :create, :edit, :update]
 
 	def index
 		@games = Game.order :id
@@ -17,9 +17,31 @@ class GamesController < ApplicationController
 	def create
 		@game = Game.new(game_params)
 		@game.save
+		puts @game.estadio
 		puts 11111111111111111111111111111111111111111111
 		puts @game.errors.inspect
 		redirect_to @game
+	end
+    
+    def edit
+		@game = Game.find(params[:id])
+	end
+
+	def update
+       @game = Game.find(params[:id])
+       puts "eçfpr"
+       puts @game.estadio
+       puts @game.errors.inspect
+       @game.update_attributes(game_params)
+
+		redirect_to(action: "show", id: @game)   
+    end
+
+    def destroy
+		@game = Game.find(params[:id])
+		@game.destroy
+
+		redirect_to(action: "index")
 	end
 
 	private
