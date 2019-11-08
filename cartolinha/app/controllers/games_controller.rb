@@ -47,9 +47,13 @@ class GamesController < ApplicationController
     def mostrarConfrontos
     	@game = Game.find_by(round_id: 1)
     	puts "rfrejgurteij"
+    	#a = @game.team_home.nome +"X"+ @game.team_away.nome
+    	a = @game.team_home.nome
+    	b = @game.team_away.nome
+    	c = a +"X"+b
     	puts @game.estadio
-    	puts @game.team_home.nome
-    	puts @game.team_away.nome
+    	puts c
+    	#puts @game.team_away.nome
     	redirect_to(action: "index")
 
     end
