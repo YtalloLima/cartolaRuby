@@ -1,27 +1,27 @@
 Entrou Aqui
-
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Link with href
+  </a>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-target
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+  </div>
+</div>
 <% contador = 1 %>
-<div align="center"><h1> Jogo </h1></div></br>
-<table class="table table-hover">
-<thead>
-	<tr>	
-		<th scope="col">
-			<td>#</td>
-		    <td>Nome</td>
-		    <td>Escudo</td>
-		    <td>Mostrar</td>
-		    <td>Editar</td>
-		    <td>Excluir</td>
-		</th>
-    </tr>
-</thead>
+<div align="center" ><h1>Confrontos <%= @games[0].round.nome%> </h1></div></br>
+<table class="table table-hover" align="center"  width="100" height="50">
 <tbody>
 	<% @games.each do |game| %>
-	<tr>
+	<tr valign="middle">
 	<th scope="row">
-		<td><%=contador %></td>
-		<td><b><%= game.team_home.nome %></b> <%= image_tag game.team_home.escudo.url(:thumb) %> X <%=image_tag game.team_away.escudo.url(:thumb) %> <b><%= game.team_away.nome %></b> </td>
-		<td><%= game.cidade %></td>
+		<td width =30% ><font size="2"><%=game.estadio %><br/><%=game.dataJogo.strftime("%m/%d/%Y") %> - <%=game.horario %></font></td>
+		<td width =30% valign="middle"><b><%= game.team_home.nome %></b> <%= image_tag game.team_home.escudo.url(:thumb) %> X <%=image_tag game.team_away.escudo.url(:thumb) %> <b><%= game.team_away.nome %></b> </td>
+		<td><%= link_to 'Avaliar' , avaliar_jogadores_path(1,2) , class: "btn btn-primary btn-sm"  %></td>
 	</th>
     </tr>
     <% contador += 1 %>
