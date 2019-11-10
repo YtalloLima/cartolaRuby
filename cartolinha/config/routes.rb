@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #match 'confrontos' =>'games#confrontos', via:'get'
   get "confrontos/:id", to: "games#confrontos", as: "confrontos_rodada"
 
-    get "avaliar/:id/:id1", to: "actions#avaliar_jogadores", as: "avaliar_jogadores"
+    get "avaliar/:id", to: "actions#avaliar_jogadores", as: "avaliar_jogadores"
 
   #match 'confrontos/:id' =>'games#mostrarConfrontos', via:'get'
 end

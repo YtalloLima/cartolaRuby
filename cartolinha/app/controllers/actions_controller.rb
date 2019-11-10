@@ -5,7 +5,15 @@ class ActionsController < ApplicationController
 
 	def avaliar_jogadores
 		puts params[:id]
-		puts params[:id1]
-		#@players =Game.where({round_id: params[:id]})
+	
+		#@games =Game.where({id: params[:id]}).group('team_home_id', 'id')
+
+
+        @games = Game.joins(team_home: :players).where({id: params[:id]}).group('team_home_id', 'id')
+
+		puts "rfkrkfp"
+		puts @games[0].team_home.nome
+		puts @games[0].team_home.players[1].nome
+		puts "xxx"
 	end
 end

@@ -21,9 +21,10 @@ Entrou Aqui
 	<th scope="row">
 		<td width =30% ><font size="2"><%=game.estadio %><br/><%=game.dataJogo.strftime("%m/%d/%Y") %> - <%=game.horario %></font></td>
 		<td width =30% valign="middle"><b><%= game.team_home.nome %></b> <%= image_tag game.team_home.escudo.url(:thumb) %> X <%=image_tag game.team_away.escudo.url(:thumb) %> <b><%= game.team_away.nome %></b> </td>
-		<td><%= link_to 'Avaliar' , avaliar_jogadores_path(1,2) , class: "btn btn-primary btn-sm"  %></td>
+		<td><%= link_to 'Avaliar' , avaliar_jogadores_path(game) , class: "btn btn-primary btn-sm"  %></td>
 	</th>
     </tr>
+    <hr/>
     <% contador += 1 %>
 	<%  end %>
 </tbody>
