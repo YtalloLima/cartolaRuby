@@ -45,21 +45,9 @@ class GamesController < ApplicationController
 	end
 
     def confrontos
-    	#@games = Game.find_by(round_id: 1)
     	@games =Game.where({round_id: params[:id]})
-    	puts "rfrejgurteij"
-    	#puts @games.errors.inspect
-    	#puts @games.length
-    	#a = @game.team_home.nome +"X"+ @game.team_away.nome
-    	#a = @games.team_home.nome
-    	#b = @games.team_away.nome
-    	#c = a +"X"+b
-    	#puts @game.estadio
-    	#puts c
-    	#puts @game.team_away.nome
-    	#redirect_to(action: "index")
-
     end
+    
 	private
 
 	def game_params

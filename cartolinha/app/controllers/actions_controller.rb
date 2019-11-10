@@ -4,12 +4,8 @@ class ActionsController < ApplicationController
 	end
 
 	def avaliar_jogadores
-		puts params[:id]
-	
-		#@games =Game.where({id: params[:id]}).group('team_home_id', 'id')
-
-
-        @games = Game.joins(team_home: :players).where({id: params[:id]}).group('team_home_id', 'id')
+		@games = Game.joins("inner join Teams on Teams.id = Games.team_home_id or Teams.id = Games.team_away_id
+		inner join Players on Players.team_id = Teams.id").where({id: params[:id]}).group('team_home_id', 'id')
 
 		puts "rfkrkfp"
 		puts @games[0].team_home.nome

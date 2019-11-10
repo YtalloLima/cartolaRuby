@@ -1,0 +1,31 @@
+
+	<% @games.each do |game| %>
+	<!-- Mandante-->
+		<div align="center"><%=image_tag game.team_home.escudo.url(:thumb) %><br/><%= game.team_away.nome %></div>
+		<table class="table table-hover" align="center"  width="100" height="50">
+        <tbody>
+		<% game.team_home.players.each do |player| %>
+			<tr valign="middle">
+			<th scope="row">
+				<td width =20% valign="middle"><b> <%= image_tag player.avatar.url(:thumb) %><br/><%= player.nome %></b></td>
+				<td ><%= link_to 'Avaliar' , avaliar_jogadores_path(player) , class: "btn btn-primary btn-sm"  %></td>
+			</th>
+		    </tr>
+		<% end %>
+	</tbody>
+</table>
+		<!-- Visitante -->
+		<div align="center"><%=image_tag game.team_away.escudo.url(:thumb) %><br/><%= game.team_away.nome %></div>
+		<table class="table table-hover" align="center"  width="100" height="50">
+        <tbody>
+		<% game.team_away.players.each do |player| %>
+			<tr valign="middle">
+			<th scope="row">
+				<td width =20% valign="middle"><b> <%= image_tag player.avatar.url(:thumb) %><br/><%= player.nome %></b></td>
+				<td><%= link_to 'Avaliar' , new_action_path(player) , class: "btn btn-primary btn-sm"  %></td>
+			</th>
+		    </tr>
+		<% end %>
+	<%  end %>
+</tbody>
+</table>
